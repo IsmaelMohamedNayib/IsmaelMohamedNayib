@@ -15,6 +15,66 @@ public abstract class OnlineCourse {
     String teacher;
     
     
+    
+public OnlineCourse(){
+        name="";
+        id="";
+        duration=0;
+        teacher="";
+        
+    }
+    
+public OnlineCourse(String nameCours, String idCours, int durationCours, String teacherCours){
+        if(nameCours.length()>=4 && nameCours.length()>=40){
+            this.name=nameCours;
+        }else{
+            System.err.println("Error");
+        }
+        
+        int account=0;
+        for(int i=0; i<teacherCours.length(); i++){
+            if(teacherCours.charAt(i)==' ' && account==0){
+                account++;
+                teacherCours.replace(" ", ",");
+                this.teacher=teacherCours;
+        }
+    }
+        
+        for(int i=0; i<idCours.length(); i++){
+            if(idCours.charAt(0)==name.charAt(0)){
+                if(idCours.charAt(idCours.length()-1)==teacher.charAt(teacher.length()-1)){
+                   this.id=idCours; 
+                }else{
+                    System.err.println("Error");
+                }
+            }else{
+                System.err.println("Error");
+        }
+        
+        
+    }
+        
+        if(durationCours>=30){
+            this.duration=durationCours;
+        }else{
+            System.err.println("Error");
+        }
+    }
+    
+    
+
+public OnlineCourse(OnlineCourse copy){
+        name=copy.name;
+        id=copy.id;
+        duration=copy.duration;
+        teacher=copy.teacher;
+    }
+    
+    
+    
+    
+    
+    
     public void setName(String nameCours){
         if(nameCours.length()>=4 && nameCours.length()>=40){
             this.name=nameCours;
